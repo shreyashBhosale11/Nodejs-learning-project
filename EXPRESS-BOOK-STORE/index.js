@@ -1,6 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
 const { title } = require("process");
 
+const authorRoute = require("./routes/author.routes")
 const bookRouters = require("./routes/book.routes")
 const {loggerMiddleware} = require("./middlewares/logger")
 
@@ -24,6 +27,8 @@ app.use(function(req , res , next ){
 
 //Routes
 app.use('/books',bookRouters);
+app.use('/authors',authorRoute);
+
 
 
 
